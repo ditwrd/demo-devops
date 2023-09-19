@@ -58,6 +58,7 @@ variable "enabled_service_list" {
   type        = list(string)
   default = [
     "compute.googleapis.com",
-    "storage-component.googleapis.com"
+    "storage-component.googleapis.com",
+    "iam.googleapis.com"
   ]
 }
