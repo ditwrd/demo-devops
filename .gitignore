@@ -73,4 +73,10 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+
+#Ansible
+*.retry
+
+# Secrets
+.env
 serviceAccount.json

@@ -1,0 +1,7 @@
+- name: Deploy to server
+  become: true
+  hosts: main_server
+  environment:
+    PATH: '/usr/local/lib/npm/bin:{{ ansible_env.PATH }}'
+  roles:
+    - role: deploy

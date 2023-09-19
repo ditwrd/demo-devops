@@ -1,0 +1,12 @@
+- name: Setting up server
+  hosts: main_server
+  become: true
+  roles:
+    - role: nginxinc.nginx
+    - role: setup
+    - {
+        role: geerlingguy.nodejs,
+        nodejs_version: '18.x',
+        nodejs_npm_global_packages: ['pnpm', 'pm2'],
+        npm_config_unsafe_perm: 'true',
+      }
