@@ -1,0 +1,16 @@
+- name: Install dependencies
+  ansible.builtin.apt:
+    name:
+      - gnupg2
+    update_cache: true
+    state: present
+
+- name: Copy Nginx Conf
+  ansible.builtin.template:
+    src: './templates/api.conf.j2'
+    dest: /etc/nginx/conf.d/api.conf
+
+- name: Restart nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
