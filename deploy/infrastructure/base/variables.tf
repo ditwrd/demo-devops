@@ -46,7 +46,7 @@ variable "tf_service_account_role_list" {
   default = [
     "roles/compute.admin",        # Compute
     "roles/compute.networkAdmin", # Compute Network
-    "roles/storage.objectAdmin",  # Cloud Storage
+    "roles/storage.admin",        # Cloud Storage
   ]
 }
 
