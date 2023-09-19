@@ -13,14 +13,12 @@ terraform {
 }
 
 provider "google" {
-  project = local.base_gcp_project_id
+  project = var.gcp_project_id["default"]
   region  = var.region
   zone    = var.zone
 }
 
 locals {
-  base_gcp_project_id = "tugas-akhir-385807"
-
   project_service_pair_list = flatten([
     for env, project_id in var.gcp_project_id : [
       for service in var.enabled_service_list :
@@ -48,7 +46,7 @@ locals {
 # GCS State Bucket
 resource "google_storage_bucket" "tf_state_bucket" {
   name                     = "${var.project_name}-tf-state-bucket"
-  project                  = local.base_gcp_project_id
+  project                  = var.gcp_project_id["default"]
   location                 = var.tf_state_bucket_geolocation
   storage_class            = "REGIONAL"
   force_destroy            = true
@@ -63,7 +61,7 @@ resource "google_service_account" "tf_service_account" {
   account_id   = "tf-sa-${var.project_name}"
   display_name = "Terraform Service Account"
   description  = "A service account used for terraform automation"
-  project      = local.base_gcp_project_id
+  project      = var.gcp_project_id["default"]
 }
 
 
