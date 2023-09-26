@@ -47,5 +47,5 @@ jobs:
         working-directory: deploy/ansible
 
       - name: Deploy api
-        run: ./ansible-playbook.sh -i inventory setup.yaml
+        run: ./ansible-playbook.sh -i inventory deploy-to-server.yaml
         working-directory: deploy/ansible
