@@ -49,3 +49,5 @@ jobs:
       - name: Deploy api
         run: ./ansible-playbook.sh -i inventory deploy-to-server.yaml
         working-directory: deploy/ansible
+        env:
+          PRIVATE_KEY: ${{ secret.PRIVATE_KEY }}
