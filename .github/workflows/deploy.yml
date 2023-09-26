@@ -46,10 +46,11 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" > .env
         working-directory: deploy/ansible
 
-      - name: Add private key file
-        run: |
-          echo "${{ secrets.PRIVATE_KEY }}" > demo
-        working-directory: ~/.ssh
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.PRIVATE_KEY }}
+          name: demo
 
       - name: Deploy api
         run: ./ansible-playbook.sh -i inventory deploy-to-server.yaml
