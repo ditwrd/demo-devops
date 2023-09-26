@@ -5,3 +5,4 @@ ungrouped:
       ansible_host: "{{ lookup('env','ANSIBLE_HOST')}}"
       ansible_user: "{{ lookup('env','ANSIBLE_USER')}}"
       ansible_ssh_private_key_file: "{{ lookup('env', 'PRIVATE_KEY') | default('~/.ssh/demo', true) }}"
+      ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
