@@ -51,6 +51,7 @@ jobs:
         with:
           key: ${{ secrets.PRIVATE_KEY }}
           name: demo
+          known_hosts: unnecessary
 
       - name: Deploy api
         run: ./ansible-playbook.sh -i inventory deploy-to-server.yaml
