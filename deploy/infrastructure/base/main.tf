@@ -97,4 +97,3 @@ resource "google_project_service" "enabled_service" {
   project            = each.value.project_id
   disable_on_destroy = false
 }
-

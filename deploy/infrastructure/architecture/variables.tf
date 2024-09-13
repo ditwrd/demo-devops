@@ -11,8 +11,8 @@ variable "gcp_project_id" {
   description = "Map of GCP Project ID base on its environment"
   type        = map(string)
   default = {
-    "default" = "tugas-akhir-385807",
-    "staging" = "tugas-akhir-385807",
+    "default" = "self-hosted-ditwrd",
+    "staging" = "self-hosted-ditwrd",
   }
 
 }
@@ -29,4 +29,3 @@ variable "region" {
   type        = string
   default     = "asia-southeast2"
 }
-
