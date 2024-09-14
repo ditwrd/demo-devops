@@ -15,6 +15,6 @@ describe('GET /', () => {
       url: '/',
     });
 
-    expect(response.json()).toEqual({ message: 'Hello World' });
+    expect(response.json()).toEqual({ message: 'Hello Lamongan Dev' });
   });
 });
